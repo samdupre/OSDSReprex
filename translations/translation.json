@@ -41,19 +41,105 @@
         "English": "Explore each subtopic", 
         "Spanish": "Explore cada subtema"
       },
-      {"English": "International Migration", "Spanish": "Witaj Shiny!"},
-      {"English": "Geographic", "Spanish": "Liczba podziałek"},
-      {"English": "Welcome to the Guatemala 2018 Census", "Spanish": "Liczba podziałek"},
-      {"English": "Select a location and topic", "Spanish": "Witaj Shiny!"},
-      {"English": "Pick a department", "Spanish": "Liczba podziałek"},
-      {"English": "Population", "Spanish": "Liczba podziałek"},
-      {"English": "Housing", "Spanish": "Liczba podziałek"},
-      {"English": "Click to focus", "Spanish": "Witaj Shiny!"},
-      {"English": "people", "Spanish": "Liczba podziałek"},
-      {"English": "housing units", "Spanish": "Liczba podziałek"},
-      {"English": "Map", "Spanish": "Witaj Shiny!"},
-      {"English": "Plots", "Spanish": "Liczba podziałek"},
-      {"English": "Demographic", "Spanish": "Liczba podziałek"},
-      {"English": "Urban/rural", "Spanish": "Liczba podziałek"}
+      {
+        "English": "Sex", 
+        "Spanish": "Sexo"
+      },
+      {
+        "English": "Age", 
+        "Spanish": "Edad"
+      },
+      {
+        "English": "Urban/Rural Status", 
+        "Spanish": "Situación Urbana/Rural"
+      },
+      {
+        "English": "Population by Sex", 
+        "Spanish": "Población por Sexo"
+      },
+      {
+        "English": "Population by Age", 
+        "Spanish": "Población por Edad"
+      },
+      {
+        "English": "Population by Urban/Rural Residence", 
+        "Spanish": "Población por Situación Urbana/Rural"
+      },
+      {
+        "English": "Population by Department", 
+        "Spanish": "Población por Departamento"
+      },
+      {
+        "English": "NOTE [Definition of dependency ratio, total]", 
+        "Spanish": "NOTA [Definición de tasa de dependencia, total]"
+      },
+      {
+        "English": "Viewing:", 
+        "Spanish": "Viendo:"
+      },
+     {
+        "English": "National figures", 
+        "Spanish": "Números nacionales"
+      },
+     {
+        "English": "people", 
+        "Spanish": "personas"
+      },
+      {
+        "English": "Total Population", 
+        "Spanish": "Población Total"
+      },
+     {
+        "English": "Population Density", 
+        "Spanish": "Densidad de Población"
+      },
+      {
+        "English": "people per square kilometer", 
+        "Spanish": "personas por kilómetro cuadrado"
+      },
+     {
+        "English": "Walking", 
+        "Spanish": "Caminando "
+      },
+      {
+        "English": "Seeing", 
+        "Spanish": "Viendo"
+      },
+      {
+        "English": "Hearing", 
+        "Spanish": "Oyendo"
+      },
+      {
+        "English": "Cognition", 
+        "Spanish": "Cognición"
+      },
+      {
+        "English": "Self-Care", 
+        "Spanish": "Autocuidado"
+      },
+      {
+        "English": "Communication", 
+        "Spanish": "Comunicación "
+      },
+      {
+        "English": "Prevalence Rate", 
+        "Spanish": "Tasa de prevalencia "
+      },
+      {
+        "English": "Notes", 
+        "Spanish": "Notas"
+      },
+      {
+        "English": "At least some difficulty in any domain*", 
+        "Spanish": "Al menos alguna dificultad en cualquier dominio*"
+      },
+      {
+        "English": "*included are walking, seeing, hearing, cognition, self-care, and/or communication", 
+        "Spanish": "*se incluyen caminar, ver, oír, cognición, autocuidado y/o comunicación"
+      },
+      {
+        "English": "These figures and calculations include only individuals aged 5 years and older", 
+        "Spanish": "Estas cifras y cálculos incluyen solo a personas de 5 años o más"
+      }
     ]
 }
