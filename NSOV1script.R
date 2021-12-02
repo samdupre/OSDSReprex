@@ -384,8 +384,8 @@ server <- function(input, output, session) {
     first_page_map_pal <- colorBin("YlGn", domain = sf2@data$Pop, bins = first_page_map_bins)
     
     first_page_map_labels <- sprintf(
-      "<strong>%s</strong><br/>%g people",
-      sf2@data$NAME_1, sf2@data$Pop) %>% 
+      "<strong>%s</strong><br/>%g %s",
+      sf2@data$NAME_1, sf2@data$Pop, i18n$t("people")) %>% 
       lapply(htmltools::HTML)
     
     first_page_map_internal <- leaflet() %>%
@@ -416,8 +416,8 @@ server <- function(input, output, session) {
     second_page_map_pal <- colorBin("YlOrRd", domain = sf2@data$SecondShow, bins = second_page_map_bins)
     
     second_page_map_labels <- sprintf(
-      "<strong>%s</strong><br/>%g percent prevalence, people with at least some difficulty walking",
-      sf2@data$NAME_1, sf2@data$SecondShow) %>% 
+      "<strong>%s</strong><br/>%g %s",
+      sf2@data$NAME_1, sf2@data$SecondShow, i18n$t("percent prevalence, people with at least some difficulty walking")) %>% 
       lapply(htmltools::HTML)
     
     second_page_map_internal <- leaflet() %>%
@@ -448,9 +448,9 @@ server <- function(input, output, session) {
     second_page_map_pal <- colorBin("YlOrRd", domain = sf2@data$SecondShow, bins = second_page_map_bins)
     
     second_page_map_labels <- sprintf(
-      "<strong>%s</strong><br/>%g percent prevalence, people with at least some difficulty walking",
-      sf2@data$NAME_1, sf2@data$SecondShow
-    ) %>% lapply(htmltools::HTML)
+      "<strong>%s</strong><br/>%g %s",
+      sf2@data$NAME_1, sf2@data$SecondShow, i18n$t("percent prevalence, people with at least some difficulty walking")) %>% 
+      lapply(htmltools::HTML)
     
     leafletProxy("second_page_map", data = sf2) %>%
       clearMarkers() %>%
@@ -477,9 +477,9 @@ server <- function(input, output, session) {
     second_page_map_pal <- colorBin("YlOrRd", domain = sf2@data$SecondShow, bins = second_page_map_bins)
     
     second_page_map_labels <- sprintf(
-      "<strong>%s</strong><br/>%g percent prevalence, people with at least some difficulty seeing",
-      sf2@data$NAME_1, sf2@data$SecondShow
-    ) %>% lapply(htmltools::HTML)
+      "<strong>%s</strong><br/>%g %s",
+      sf2@data$NAME_1, sf2@data$SecondShow, i18n$t("percent prevalence, people with at least some difficulty seeing")) %>% 
+      lapply(htmltools::HTML)
     
     leafletProxy("second_page_map", data = sf2) %>%
       clearMarkers() %>%
@@ -506,9 +506,9 @@ server <- function(input, output, session) {
     second_page_map_pal <- colorBin("YlOrRd", domain = sf2@data$SecondShow, bins = second_page_map_bins)
     
     second_page_map_labels <- sprintf(
-      "<strong>%s</strong><br/>%g percent prevalence, people with at least some difficulty hearing",
-      sf2@data$NAME_1, sf2@data$SecondShow
-    ) %>% lapply(htmltools::HTML)
+      "<strong>%s</strong><br/>%g %s",
+      sf2@data$NAME_1, sf2@data$SecondShow, i18n$t("percent prevalence, people with at least some difficulty hearing")) %>% 
+      lapply(htmltools::HTML)
     
     leafletProxy("second_page_map", data = sf2) %>%
       clearMarkers() %>%
@@ -535,9 +535,9 @@ server <- function(input, output, session) {
     second_page_map_pal <- colorBin("YlOrRd", domain = sf2@data$SecondShow, bins = second_page_map_bins)
     
     second_page_map_labels <- sprintf(
-      "<strong>%s</strong><br/>%g percent prevalence, people with at least some cognition difficulty",
-      sf2@data$NAME_1, sf2@data$SecondShow
-    ) %>% lapply(htmltools::HTML)
+      "<strong>%s</strong><br/>%g %s",
+      sf2@data$NAME_1, sf2@data$SecondShow, i18n$t("percent prevalence, people with at least some cognition difficulty")) %>% 
+      lapply(htmltools::HTML)
     
     leafletProxy("second_page_map", data = sf2) %>%
       clearMarkers() %>%
@@ -564,9 +564,9 @@ server <- function(input, output, session) {
     second_page_map_pal <- colorBin("YlOrRd", domain = sf2@data$SecondShow, bins = second_page_map_bins)
     
     second_page_map_labels <- sprintf(
-      "<strong>%s</strong><br/>%g percent prevalence, people with at least some difficulty with selfcare",
-      sf2@data$NAME_1, sf2@data$SecondShow
-    ) %>% lapply(htmltools::HTML)
+      "<strong>%s</strong><br/>%g %s",
+      sf2@data$NAME_1, sf2@data$SecondShow, i18n$t("percent prevalence, people with at least some difficulty with selfcare")) %>% 
+      lapply(htmltools::HTML)
     
     leafletProxy("second_page_map", data = sf2) %>%
       clearMarkers() %>%
@@ -593,9 +593,9 @@ server <- function(input, output, session) {
     second_page_map_pal <- colorBin("YlOrRd", domain = sf2@data$SecondShow, bins = second_page_map_bins)
     
     second_page_map_labels <- sprintf(
-      "<strong>%s</strong><br/>%g percent prevalence, people with at least some difficulty with communication",
-      sf2@data$NAME_1, sf2@data$SecondShow
-    ) %>% lapply(htmltools::HTML)
+      "<strong>%s</strong><br/>%g %s",
+      sf2@data$NAME_1, sf2@data$SecondShow, i18n$t("percent prevalence, people with at least some difficulty with communication")) %>% 
+      lapply(htmltools::HTML)
     
     leafletProxy("second_page_map", data = sf2) %>%
       clearMarkers() %>%
