@@ -1,6 +1,6 @@
 #SETUP FUNCTIONS TO GENERATE PAGE SECTIONS, PAGE DISABILITY STATUS#
 
-nav_picker_thirdPage <- div(
+nav_picker_secondPage <- div(
   class = "nav_picker",
   DefaultButton.shinyInput(
     "walking_button",
@@ -40,42 +40,42 @@ nav_picker_thirdPage <- div(
   )
 )
 
-third_page_first_stack <- Stack(
+second_page_first_stack <- Stack(
   tokens = list(childrenGap = 10),
   div(
     Stack(
       tokens = list(childrenGap = 10), horizontal = TRUE,
       makeCard(" ",
                div(
-                 leafletOutput("third_page_map")
+                 leafletOutput("second_page_map")
                ),
                size = 6
       ),
       makeCard(" ",
                div(
-                 plotOutput("thirdPage_Dis_ADM1Plot")
+                 plotOutput("secondPage_Dis_ADM1Plot")
                ),
                size = 3
       ),
       makeCard(" ",
                div(
                  strong("Viewing: "),
-                 textOutput("thirdPage_statistics_text0"),
+                 textOutput("secondPage_statistics_text0"),
                  br(),
                  strong("At least some difficulty in any domain*:"),
-                 textOutput("thirdPage_statistics_text1"),
+                 textOutput("secondPage_statistics_text1"),
                  strong("Walking"),
-                 textOutput("thirdPage_statistics_text2"),
+                 textOutput("secondPage_statistics_text2"),
                  strong("Seeing"),
-                 textOutput("thirdPage_statistics_text3"),
+                 textOutput("secondPage_statistics_text3"),
                  strong("Hearing"),
-                 textOutput("thirdPage_statistics_text4"),
+                 textOutput("secondPage_statistics_text4"),
                  strong("Cognition"),
-                 textOutput("thirdPage_statistics_text5"),
+                 textOutput("secondPage_statistics_text5"),
                  strong("Self-Care"),
-                 textOutput("thirdPage_statistics_text6"),
+                 textOutput("secondPage_statistics_text6"),
                  strong("Communication"),
-                 textOutput("thirdPage_statistics_text7"),
+                 textOutput("secondPage_statistics_text7"),
                  br(),
                  p("*included are walking, seeing, hearing, cognition, self-care, and/or communication")
                ),
@@ -85,17 +85,17 @@ third_page_first_stack <- Stack(
   )
 )
 
-thirdPage_first_stack_content <- function() {
+secondPage_first_stack_content <- function() {
   Stack(
     tokens = list(childrenGap = 10),
     makeCard(" ",
-             third_page_first_stack,
+             second_page_first_stack,
              size = 11)
   )}
 
 
 
-third_page_second_stack <- Stack(
+second_page_second_stack <- Stack(
   tokens = list(childrenGap = 10),
   Stack(
     tokens = list(childrenGap = 10), horizontal = FALSE,
@@ -108,10 +108,10 @@ third_page_second_stack <- Stack(
   )
 )
 
-thirdPage_second_stack_content <- function() {
+secondPage_second_stack_content <- function() {
   Stack(
     tokens = list(childrenGap = 10),
     makeCard("Notes",
-             third_page_second_stack,
+             second_page_second_stack,
              size = 11)
   )}

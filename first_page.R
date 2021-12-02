@@ -6,9 +6,7 @@ first_page_overview_stack <- Stack(
     tokens = list(childrenGap = 10), horizontal = TRUE,
     makeCard(" ",
              div(
-               leafletOutput("first_page_map"),
-               DefaultButton.shinyInput("firstPage_dot_map_button", text = "Dot Map", styles = list("background: green")),
-               DefaultButton.shinyInput("firstPage_choropleth_map_button", text = "Choropleth", styles = list("background: green"))
+               leafletOutput("first_page_map")
              ),
              size = 6
     ),
