@@ -180,7 +180,7 @@ sidedisplay <- Stack(
   tokens = list(childrenGap = 10),
   makeCard(i18n$t("Controls"),
            Stack(
-             Label("Select a location"),
+             Label(i18n$t("Select a location")),
              Dropdown.shinyInput("dropdown", value = "All", options = ADM1s),
              br(),
              conditionalPanel(
@@ -198,7 +198,7 @@ sidedisplay <- Stack(
 #FIRST
 firstPage <- makePage(
   i18n$t('Demography & Social Characteristics'),
-  "Explore each subtopic",
+  i18n$t("Explore each subtopic"),
   div(
     firstPage_first_stack_content(),
     firstPage_second_stack_content()
@@ -646,6 +646,7 @@ server <- function(input, output, session) {
   
   output$firstPage_Sex <- renderPlot({
     sexPlot <- dropdownFilteredData() %>%
+      
       filter(Metric == "Population" & Type %in% c("Male", "Female")) %>%
       mutate(Sex = fct_relevel(Type, "Female", "Male")) %>%
       ggplot(aes(x = Type, y = Value)) +
@@ -681,7 +682,7 @@ server <- function(input, output, session) {
       ggplot(aes(x = Type, y = Value)) +
       geom_bar(stat = "identity") +
       ggtitle("Population by Urban / Rural Residence") +
-      ylab("People") +
+      ylab(i18n$t("People")) +
       xlab("Urban / Rural Status") +
       theme_plot() +
       coord_flip()
