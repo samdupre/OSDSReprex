@@ -42,8 +42,7 @@ library(rmarkdown)
 
 source("first_page.R")
 source("second_page.R")
-
-logo <- png::readPNG("./logo-placeholder.png")
+source("components.R")
 
 font_add_google(name = "Lato", family = "Lato", regular.wt = 400, bold.wt = 700)
 showtext_auto()
@@ -75,8 +74,8 @@ theme_plot <- function(...) {
 }
 
 #LOAD THE DATA##################################################################################################################
-imported_data <- read_excel("data/GTMCenso.xlsx", sheet = "Population")
-imported_data_wide_all <- read_excel("data/GTMCenso_indicator_widgets.xlsx", sheet = "Population")
+imported_data <- read_excel("data/GTMCenso_reprex.xlsx", sheet = "Population")
+imported_data_wide_all <- read_excel("data/GTMCenso_indicator_widgets_reprex.xlsx", sheet = "Population")
 # imported_data_for_join_0 <- imported_data_wide_all %>% filter(Level == "ADM0")
 # imported_data_for_join_1 <- imported_data_wide_all %>% filter(Level == "ADM1")
 imported_data_for_join_2 <- imported_data_wide_all %>% filter(Level == "ADM2")
@@ -159,7 +158,7 @@ sidenav <- Nav(
            expandAriaLabel = "Expand section",
            collapseAriaLabel = "Collapse section",
            links = list(
-             list(name = 'Demographic & Social', url = '#!/1', key = 'sidebar_first', icon = 'Group'),
+             list(name = 'Demographic & Social', url = '#!/', key = 'sidebar_first', icon = 'Group'),
              list(name = 'Disability Status', url = '#!/2', key = 'sidebar_second', icon = 'Glasses')
            )
       )))
@@ -316,51 +315,6 @@ server <- function(input, output, session) {
     internal <- internal$PopDensity
   })
   
-  firstPage_stat3 <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- internal$SexRatio
-  })
-  
-  firstPage_stat4 <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- internal$Perc0to14
-  })
-  
-  firstPage_stat5 <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- internal$Perc15to64
-  })
-  
-  firstPage_stat6 <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- internal$Perc65Plus
-  })
-  
-  firstPage_stat7 <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- internal$TotDepRat
-  })
-  
-  firstPage_stat8 <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- internal$CDepRate
-  })
-  
-  firstPage_stat9 <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- internal$ADepRate
-  })
-  
-  firstPage_stat10 <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- internal$MedianAge
-  })
-  
-  firstPage_stat11 <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- internal$LifeExpect
-  })
-  
   output$firstPage_statistics_text1 <- renderText({
     paste(
       firstPage_stat1(),
@@ -371,48 +325,6 @@ server <- function(input, output, session) {
     paste(
       firstPage_stat2(),
       "people per square kilometer")
-  })
-  
-  output$firstPage_statistics_text3 <- renderText({
-    paste(
-      firstPage_stat3(),
-      "men per woman")
-  })
-  
-  output$firstPage_statistics_text4 <- renderText({
-    firstPage_stat4()
-  })
-  
-  output$firstPage_statistics_text5 <- renderText({
-    firstPage_stat5()
-  })
-  
-  output$firstPage_statistics_text6 <- renderText({
-    firstPage_stat6()
-  })
-  
-  output$firstPage_statistics_text7 <- renderText({
-    firstPage_stat7()
-  })
-  
-  output$firstPage_statistics_text8 <- renderText({
-    firstPage_stat8()
-  })
-  
-  output$firstPage_statistics_text9 <- renderText({
-    firstPage_stat9()
-  })
-  
-  output$firstPage_statistics_text10 <- renderText({
-    paste(
-      firstPage_stat10(),
-      "years")
-  })
-  
-  output$firstPage_statistics_text11 <- renderText({
-    paste(
-      firstPage_stat11(),
-      "years")
   })
   
   output$secondPage_statistics_text0 <- renderText({
@@ -429,114 +341,6 @@ server <- function(input, output, session) {
       disability_indicator(),
       "people")
   })
-  
-  walking_dis_indicator <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- mean(internal$Walk)
-  })
-  
-  walkingrate_dis_indicator <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- mean(internal$WalkRate)
-  })
-  
-  output$secondPage_statistics_text2 <- renderText({
-    paste(
-      walking_dis_indicator(),
-      "people (",
-      walkingrate_dis_indicator(),
-      "%)")
-  })
-  
-  seeing_dis_indicator <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- mean(internal$See)
-  })
-  
-  seeingrate_dis_indicator <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- mean(internal$SeeRate)
-  })
-  
-  output$secondPage_statistics_text3 <- renderText({
-    paste(
-      seeing_dis_indicator(),
-      "people (",
-      seeingrate_dis_indicator(),
-      "%)")
-  })
-  
-  hearing_dis_indicator <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- mean(internal$Hear)
-  })
-  
-  hearingrate_dis_indicator <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- mean(internal$HearRate)
-  })
-  
-  output$secondPage_statistics_text4 <- renderText({
-    paste(
-      hearing_dis_indicator(),
-      "people (",
-      hearingrate_dis_indicator(),
-      "%)")
-  })
-  
-  cognition_dis_indicator <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- mean(internal$Cog)
-  })
-  
-  cognitionrate_dis_indicator <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- mean(internal$CogRate)
-  })
-  
-  output$secondPage_statistics_text5 <- renderText({
-    paste(
-      cognition_dis_indicator(),
-      "people (",
-      cognitionrate_dis_indicator(),
-      "%)")
-  })
-  
-  selfcare_dis_indicator <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- mean(internal$Selfca)
-  })
-  
-  selfcarerate_dis_indicator <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- mean(internal$SelfcaRate)
-  })
-  
-  output$secondPage_statistics_text6 <- renderText({
-    paste(
-      selfcare_dis_indicator(),
-      "people (",
-      selfcarerate_dis_indicator(),
-      "%)")
-  })
-  
-  communication_dis_indicator <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- mean(internal$Comm)
-  })
-  
-  commrate_dis_indicator <- reactive({
-    internal <- filtered_data_from_dropdown_ind_widgets()
-    internal <- mean(internal$CommRate)
-  })
-  
-  output$secondPage_statistics_text7 <- renderText({
-    paste(
-      communication_dis_indicator(),
-      "people (",
-      commrate_dis_indicator(),
-      "%)")
-  }) 
   
   #FOCUS BUTTONS######################################################
   
@@ -573,18 +377,29 @@ server <- function(input, output, session) {
   
   #LEAFLET############################################################  
   
+  first_page_map_bins <- c(0, 20000, 40000, 60000, 80000, 100000, Inf)
+  
   output$first_page_map <- renderLeaflet({
+    
+    first_page_map_pal <- colorBin("YlGn", domain = sf2@data$Pop, bins = first_page_map_bins)
+    
+    first_page_map_labels <- sprintf(
+      "<strong>%s</strong><br/>%g people",
+      sf2@data$NAME_1, sf2@data$Pop) %>% 
+      lapply(htmltools::HTML)
     
     first_page_map_internal <- leaflet() %>%
       addProviderTiles("CartoDB.DarkMatter", layerId = "basetile",options = providerTileOptions(minZoom = 6)) %>%
-      addPolygons(fillColor = ~pal(Pop),
+      addPolygons(data = sf2,
+                  fillColor = ~first_page_map_pal(Pop),
                   weight = 1,
                   fillOpacity = 0.8,
                   color = "white",
                   highlightOptions = highlightOptions(color = "white",
                                                       weight = 3,
-                                                      bringToFront = TRUE)) %>%
-      addLegend(pal=pal, values = ~Pop, opacity = 0.7, title = NULL, position = "bottomright") %>%
+                                                      bringToFront = TRUE),
+                  label = first_page_map_labels) %>%
+      addLegend(pal=first_page_map_pal, values = sf2@data$Pop, opacity = 0.7, title = NULL, position = "bottomright") %>%
       setView(lng = -90,
               lat = 16,
               zoom = 7) %>%
@@ -602,8 +417,8 @@ server <- function(input, output, session) {
     
     second_page_map_labels <- sprintf(
       "<strong>%s</strong><br/>%g percent prevalence, people with at least some difficulty walking",
-      sf2@data$NAME_1, sf2@data$SecondShow
-    ) %>% lapply(htmltools::HTML)
+      sf2@data$NAME_1, sf2@data$SecondShow) %>% 
+      lapply(htmltools::HTML)
     
     second_page_map_internal <- leaflet() %>%
       addProviderTiles("CartoDB.DarkMatter", layerId = "basetile",options = providerTileOptions(minZoom = 6)) %>%
@@ -616,6 +431,7 @@ server <- function(input, output, session) {
                                                       weight = 3,
                                                       bringToFront = TRUE),
                   label = second_page_map_labels) %>%
+      addLegend(pal=second_page_map_pal, values = sf2@data$SecondShow, opacity = 0.7, title = NULL, position = "bottomright") %>%
       setView(lng = -90,
               lat = 16,
               zoom = 7) %>%
@@ -806,22 +622,26 @@ server <- function(input, output, session) {
     req(input$dropdown)
     
     internal_df <- imported_data %>%
-      filter(Metric == "Population" & Level == "ADM1")
+      filter(Metric == "Population" & Level == "ADM1" & Type == "Total")
     
     a <- internal_df %>%
       mutate(ADM1 = fct_reorder(ADM1, Value)) %>%
       ggplot(aes(x = reorder(ADM1, Value), y = Value)) +
       geom_bar(fill = "#41AB5D", stat = "identity") +
-      # xlab(i18n$t("Department")) +
+      xlab(i18n$t("Department")) +
       theme(legend.position = "none") +
       ylab(i18n$t("People")) +
       theme_plot() +
       ggtitle("Population by Department") +
       coord_flip()
     
-    if(input$dropdown != "All") a <- a  + gghighlight(ADM1 == input$dropdown)
-    
-    a
+    if(input$dropdown != "All") {
+      a <- a  + gghighlight(ADM1 == input$dropdown)
+      a
+    } else {
+      a
+    }
+
   })
   
   output$firstPage_Sex <- renderPlot({

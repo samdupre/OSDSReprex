@@ -23,25 +23,7 @@ first_page_overview_stack <- Stack(
                strong("Total Population"),
                textOutput("firstPage_statistics_text1"),
                strong("Population Density"),
-               textOutput("firstPage_statistics_text2"),
-               strong("Sex Ratio"),
-               textOutput("firstPage_statistics_text3"),
-               strong("Percent Aged 0 to 14 Years"),
-               textOutput("firstPage_statistics_text4"),
-               strong("Percent Aged 15 to 64 Years"),
-               textOutput("firstPage_statistics_text5"),
-               strong("Percent Aged 65+ Years"),
-               textOutput("firstPage_statistics_text6"),
-               strong("Dependency Ratio, Total"),
-               textOutput("firstPage_statistics_text7"),
-               strong("Dependency Ratio, Child"),
-               textOutput("firstPage_statistics_text8"),
-               strong("Dependency Ratio, Aged"),
-               textOutput("firstPage_statistics_text9"),
-               strong("Median Age"),
-               textOutput("firstPage_statistics_text10"),
-               strong("Life Expectancy"),
-               textOutput("firstPage_statistics_text11")
+               textOutput("firstPage_statistics_text2")
              ),
              size = 3
     )
@@ -81,9 +63,7 @@ first_page_second_stack <- Stack(
       ),
       makeCard(" ",
                Stack(
-                 p("NOTE [Definition of dependency ratio, total]"),
-                 p("NOTE [Definition of dependency ratio, youth]"),
-                 p("NOTE [Definition of dependency ratio, child]")),
+                 p("NOTE [Definition of dependency ratio, total]")),
                size = 5
       )
     )
