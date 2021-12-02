@@ -17,7 +17,7 @@ first_page_overview_stack <- Stack(
     ),
     makeCard(" ",
              div(
-               strong(i18n$t("Viewing: ")),
+               strong(i18n$t("Viewing:")),
                textOutput("firstPage_statistics_text0"),
                br(),
                strong(i18n$t("Total Population")),

@@ -53,7 +53,7 @@ second_page_first_stack <- Stack(
       ),
       makeCard(" ",
                div(
-                 strong(i18n$t("Viewing: ")),
+                 strong(i18n$t("Viewing:")),
                  textOutput("secondPage_statistics_text0"),
                  br(),
                  strong(i18n$t("At least some difficulty in any domain*:")),
