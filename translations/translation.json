@@ -3,28 +3,43 @@
   "translation": [
       {
         "English": "Change language", 
-        "Spanish": "Witaj Shiny!"
-        
+        "Spanish": "Cambiar el idioma"
       },
       {
         "English": "Department", 
-        "Spanish": "Municipio"
-        
+        "Spanish": "Municipio"       
       },
       {
         "English": "People", 
-        "Spanish": "Personas"
-        
+        "Spanish": "Personas" 
+      },
+      {
+        "English": "Public-facing elements", 
+        "Spanish": "Elementos de cara al público"
       },
       {
         "English": "Demographic & Social", 
-        "Spanish": "Liczba podziałek"
-      
+        "Spanish": "Demográfico & Social"
       },
       {
-        "English": "Household & Family", 
-        "Spanish": "Liczba podziałek"
-        
+        "English": "Disability Status", 
+        "Spanish": "Estado de Discapacidad"
+      },
+      {
+        "English": "Demography & Social Characteristics", 
+        "Spanish": "Demografía & Características Sociales"
+      },
+      {
+        "English": "Controls", 
+        "Spanish": "Controles"
+      },
+      {
+        "English": "Select a location", 
+        "Spanish": "Selecciona una ubicación"
+      },
+      {
+        "English": "Explore each subtopic", 
+        "Spanish": "Explore cada subtema"
       },
       {"English": "International Migration", "Spanish": "Witaj Shiny!"},
       {"English": "Geographic", "Spanish": "Liczba podziałek"},
