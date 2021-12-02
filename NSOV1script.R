@@ -97,7 +97,7 @@ shapefile(tempjoin2, filename = "www/join_output_2.shp", overwrite = TRUE)
 sf2 <- as(st_read("www/join_output_2.shp"), "Spatial")
 
 ADM1s <- list(
-  list(key = "All", text = "All Areas"),
+  list(key = "All", text = i18n$t("All Areas")),
   list(key = "Alta Verapaz", text = "Alta Verapaz"),
   list(key = "Baja Verapaz", text = "Baja Verapaz"),
   list(key = "Chimaltenango", text = "Chimaltenango"),
@@ -186,7 +186,7 @@ sidedisplay <- Stack(
              conditionalPanel(
                condition = "output.current_page == 2",
                br(),
-               Label("Select a subtopic"),
+               Label(i18n$t("Select a subtopic")),
                nav_picker_secondPage
              )
            ),
@@ -208,7 +208,7 @@ firstPage <- makePage(
 #SECOND
 secondPage <- makePage(
   i18n$t('Disability Status'),
-  "Explore each subtopic",
+  i18n$t("Explore each subtopic"),
   div(
     secondPage_first_stack_content(),
     secondPage_second_stack_content()
@@ -318,13 +318,13 @@ server <- function(input, output, session) {
   output$firstPage_statistics_text1 <- renderText({
     paste(
       firstPage_stat1(),
-      "people")
+      i18n$t("people"))
   })
   
   output$firstPage_statistics_text2 <- renderText({
     paste(
       firstPage_stat2(),
-      "people per square kilometer")
+      i18n$t("people per square kilometer"))
   })
   
   output$secondPage_statistics_text0 <- renderText({
@@ -339,7 +339,7 @@ server <- function(input, output, session) {
   output$secondPage_statistics_text1 <- renderText({
     paste(
       disability_indicator(),
-      "people")
+      i18n$t("people"))
   })
   
   #FOCUS BUTTONS######################################################
@@ -632,7 +632,7 @@ server <- function(input, output, session) {
       theme(legend.position = "none") +
       ylab(i18n$t("People")) +
       theme_plot() +
-      ggtitle("Population by Department") +
+      ggtitle(i18n$t("Population by Department")) +
       coord_flip()
     
     if(input$dropdown != "All") {
@@ -651,9 +651,9 @@ server <- function(input, output, session) {
       mutate(Sex = fct_relevel(Type, "Female", "Male")) %>%
       ggplot(aes(x = Type, y = Value)) +
       geom_bar(stat = "identity") +
-      ggtitle("Population by Sex") +
+      ggtitle(i18n$t("Population by Sex")) +
       ylab(i18n$t("People")) +
-      xlab("Sex") +
+      xlab(i18n$t("Sex")) +
       theme_plot() +
       coord_flip()
     
@@ -666,9 +666,9 @@ server <- function(input, output, session) {
       mutate(Type = fct_relevel(Type, "0 to 4", "5 to 9", "10 to 14", "15 to 19", "20 to 24", "25 to 29", "30 to 34", "35 to 39", "40 to 44", "45 to 49", "50 to 54", "55 to 59", "60 to 64", "65+")) %>%
       ggplot(aes(x = Type, y = Value)) +
       geom_bar(stat = "identity") +
-      ggtitle("Population by Age") +
+      ggtitle(i18n$t("Population by Age")) +
       ylab(i18n$t("People")) +
-      xlab("Age") +
+      xlab(i18n$t("Age")) +
       theme_plot() +
       coord_flip()
     
@@ -681,9 +681,9 @@ server <- function(input, output, session) {
       mutate(UrbanRural = fct_relevel(UrbanRural, "Urban", "Rural")) %>%
       ggplot(aes(x = Type, y = Value)) +
       geom_bar(stat = "identity") +
-      ggtitle("Population by Urban / Rural Residence") +
+      ggtitle(i18n$t("Population by Urban / Rural Residence")) +
       ylab(i18n$t("People")) +
-      xlab("Urban / Rural Status") +
+      xlab(i18n$t("Urban / Rural Status")) +
       theme_plot() +
       coord_flip()
     
@@ -697,17 +697,17 @@ server <- function(input, output, session) {
       unlist(., use.names = FALSE)
     
     if (internal == "Walking") {
-      plotTitle <- "Prevalence Rate of Population with at Least Some \nDifficulty in Walking by Department"
+      plotTitle <- i18n$t("Prevalence Rate of Population with at Least Some \nDifficulty in Walking by Department")
     } else if (internal == "Seeing") {
-      plotTitle <- "Prevalence Rate of Population with at Least Some \nDifficulty in Seeing by Department"
+      plotTitle <- i18n$t("Prevalence Rate of Population with at Least Some \nDifficulty in Seeing by Department")
     } else if (internal == "Hearing") {
-      plotTitle <- "Prevalence Rate of Population with at Least Some \nDifficulty in Hearing by Department"
+      plotTitle <- i18n$t("Prevalence Rate of Population with at Least Some \nDifficulty in Hearing by Department")
     } else if (internal == "Cognition") {
-      plotTitle <- "Prevalence Rate of Population with at Least Some \nCognition Difficulty by Department"
+      plotTitle <- i18n$t("Prevalence Rate of Population with at Least Some \nCognition Difficulty by Department")
     } else if (internal == "Selfcare") {
-      plotTitle <- "Prevalence Rate of Population with at Least Some \nDifficulty With Selfcare by Department"
+      plotTitle <- i18n$t("Prevalence Rate of Population with at Least Some \nDifficulty With Selfcare by Department")
     } else if (internal == "Communication") {
-      plotTitle <- "Prevalence Rate of Population with at Least Some \nDifficulty With Communication by Department"
+      plotTitle <- i18n$t("Prevalence Rate of Population with at Least Some \nDifficulty With Communication by Department")
     } else {
       plotTitle <- internal
     }
@@ -718,16 +718,19 @@ server <- function(input, output, session) {
       mutate(ADM1 = fct_reorder(ADM1, Value)) %>%
       ggplot(aes(x = reorder(ADM1, Value), y = Value)) +
       geom_bar(fill = "#F05131", stat = "identity") +
-      # xlab(i18n$t("Department")) +
+      xlab(i18n$t("Department")) +
       theme(legend.position = "none") +
-      ylab("Prevalence Rate (Percent)") +
+      ylab(i18n$t("Prevalence Rate (Percent)")) +
       theme_plot() +
       ggtitle(plotTitle) +
       coord_flip()
     
-    if(input$dropdown != "All") a <- a  + gghighlight(ADM1 == input$dropdown)
-    
-    a
+    if(input$dropdown != "All") {
+      a <- a  + gghighlight(ADM1 == input$dropdown)
+      a
+    } else {
+      a
+    }
     
   })
   

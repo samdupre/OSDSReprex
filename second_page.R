@@ -4,38 +4,32 @@ nav_picker_secondPage <- div(
   class = "nav_picker",
   DefaultButton.shinyInput(
     "walking_button",
-    text = "Walking",
-    # iconProps = list("iconName" = 'Globe'),
+    text = i18n$t("Walking"),
     className = "nav_item"
   ),
   DefaultButton.shinyInput(
     "seeing_button",
-    text = "Seeing",
-    # iconProps = list("iconName" = 'ShareiOS'),
+    text = i18n$t("Seeing"),
     className = "nav_item"
   ),
   DefaultButton.shinyInput(
     "hearing_button",
-    text = "Hearing",
-    # iconProps = list("iconName" = 'ShareiOS'),
+    text = i18n$t("Hearing"),
     className = "nav_item"
   ),
   DefaultButton.shinyInput(
     "cognition_button",
-    text = "Cognition",
-    # iconProps = list("iconName" = 'Globe'),
+    text = i18n$t("Cognition"),
     className = "nav_item"
   ),
   DefaultButton.shinyInput(
     "selfcare_button",
-    text = "Self-Care",
-    # iconProps = list("iconName" = 'ShareiOS'),
+    text = i18n$t("Self-Care"),
     className = "nav_item"
   ),
   DefaultButton.shinyInput(
     "communication_button",
-    text = "Communication",
-    # iconProps = list("iconName" = 'ShareiOS'),
+    text = i18n$t("Communication"),
     className = "nav_item"
   )
 )
@@ -59,13 +53,13 @@ second_page_first_stack <- Stack(
       ),
       makeCard(" ",
                div(
-                 strong("Viewing: "),
+                 strong(i18n$t("Viewing: ")),
                  textOutput("secondPage_statistics_text0"),
                  br(),
-                 strong("At least some difficulty in any domain*:"),
+                 strong(i18n$t("At least some difficulty in any domain*:")),
                  textOutput("secondPage_statistics_text1"),
                  br(),
-                 p("*included are walking, seeing, hearing, cognition, self-care, and/or communication")
+                 p(i18n$t("*included are walking, seeing, hearing, cognition, self-care, and/or communication"))
                ),
                size = 3
       )
@@ -89,7 +83,7 @@ second_page_second_stack <- Stack(
     tokens = list(childrenGap = 10), horizontal = FALSE,
     makeCard(" ",
              div(
-               p("These figures and calculations include only individuals aged 5 years and older")
+               p(i18n$t("These figures and calculations include only individuals aged 5 years and older"))
              ),
              size = 11
     )
@@ -99,7 +93,7 @@ second_page_second_stack <- Stack(
 secondPage_second_stack_content <- function() {
   Stack(
     tokens = list(childrenGap = 10),
-    makeCard("Notes",
+    makeCard(i18n$t("Notes"),
              second_page_second_stack,
              size = 11)
   )}

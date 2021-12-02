@@ -17,12 +17,12 @@ first_page_overview_stack <- Stack(
     ),
     makeCard(" ",
              div(
-               strong("Viewing: "),
+               strong(i18n$t("Viewing: ")),
                textOutput("firstPage_statistics_text0"),
                br(),
-               strong("Total Population"),
+               strong(i18n$t("Total Population")),
                textOutput("firstPage_statistics_text1"),
-               strong("Population Density"),
+               strong(i18n$t("Population Density")),
                textOutput("firstPage_statistics_text2")
              ),
              size = 3
@@ -63,7 +63,7 @@ first_page_second_stack <- Stack(
       ),
       makeCard(" ",
                Stack(
-                 p("NOTE [Definition of dependency ratio, total]")),
+                 p(i18n$t("NOTE [Definition of dependency ratio, total]"))),
                size = 5
       )
     )
