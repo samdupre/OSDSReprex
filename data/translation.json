@@ -1,10 +1,31 @@
 {
   "languages": ["English", "Spanish"],
   "translation": [
-      {"English": "Change language", "Spanish": "Witaj Shiny!"},
-      {"English": "Home", "Spanish": "Liczba podziałek"},
-      {"English": "Demographic & Social", "Spanish": "Liczba podziałek"},
-      {"English": "Household & Family", "Spanish": "Liczba podziałek"},
+      {
+        "English": "Change language", 
+        "Spanish": "Witaj Shiny!"
+        
+      },
+      {
+        "English": "Department", 
+        "Spanish": "Municipio"
+        
+      },
+      {
+        "English": "People", 
+        "Spanish": "Personas"
+        
+      },
+      {
+        "English": "Demographic & Social", 
+        "Spanish": "Liczba podziałek"
+      
+      },
+      {
+        "English": "Household & Family", 
+        "Spanish": "Liczba podziałek"
+        
+      },
       {"English": "International Migration", "Spanish": "Witaj Shiny!"},
       {"English": "Geographic", "Spanish": "Liczba podziałek"},
       {"English": "Welcome to the Guatemala 2018 Census", "Spanish": "Liczba podziałek"},
