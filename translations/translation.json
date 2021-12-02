@@ -50,8 +50,8 @@
         "Spanish": "Edad"
       },
       {
-        "English": "Urban/Rural Status", 
-        "Spanish": "Situación Urbana/Rural"
+        "English": "Urban / Rural Status", 
+        "Spanish": "Situación Urbana / Rural"
       },
       {
         "English": "Population by Sex", 
@@ -62,8 +62,8 @@
         "Spanish": "Población por Edad"
       },
       {
-        "English": "Population by Urban/Rural Residence", 
-        "Spanish": "Población por Situación Urbana/Rural"
+        "English": "Population by Urban / Rural Residence", 
+        "Spanish": "Población por Situación Urbana / Rural"
       },
       {
         "English": "Population by Department", 
@@ -119,7 +119,7 @@
       },
       {
         "English": "Communication", 
-        "Spanish": "Comunicación "
+        "Spanish": "Comunicación"
       },
       {
         "English": "Prevalence Rate", 
@@ -140,6 +140,38 @@
       {
         "English": "These figures and calculations include only individuals aged 5 years and older", 
         "Spanish": "Estas cifras y cálculos incluyen solo a personas de 5 años o más"
+      },
+      {
+        "English": "All Areas", 
+        "Spanish": "Todas las Areas"
+      },
+      {
+        "English": "Prevalence Rate (Percent)", 
+        "Spanish": "Tasa de Prevalencia (Porcentaje)"
+      },
+      {
+        "English": "Prevalence Rate of Population with at Least Some Difficulty in Walking by Department", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna Dificultad para Caminar por Departamento "
+      },
+    {
+        "English": "Prevalence Rate of Population with at Least Some Difficulty in Seeing by Department", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna Dificultad para Ver por Departamento "
+      },
+    {
+        "English": "Prevalence Rate of Population with at Least Some Difficulty in Hearing by Department", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna Dificultad para Oir por Departamento "
+      },
+    {
+        "English": "Prevalence Rate of Population with at Least Some Difficulty in Cognition by Department", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna Dificultad para Cognición por Departamento "
+      },
+    {
+        "English": "Prevalence Rate of Population with at Least Some Difficulty in Self-Care by Department", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna Dificultad para Autocuidado por Departamento "
+      },
+    {
+        "English": "Prevalence Rate of Population with at Least Some Difficulty in Communication by Department", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna Dificultad para Comunicación por Departamento "
       }
     ]
 }
