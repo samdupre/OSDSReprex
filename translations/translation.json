@@ -6,6 +6,42 @@
         "Spanish": "Cambiar el idioma"
       },
       {
+        "English": "English", 
+        "Spanish": "Inglés"
+      },
+      {
+        "English": "Spanish", 
+        "Spanish": "Español"
+      },
+      {
+        "English": "If you'd like to learn more, reach out to us at NSO@DOMAIN.GOV", 
+        "Spanish": "Si desea obtener más información, comuníquese con nosotros en NSO@DOMAIN.GOV"
+      },
+      {
+        "English": "Created in OSDS", 
+        "Spanish": "Creado en OSDS"
+      },
+      {
+        "English": "All rights reserved.", 
+        "Spanish": "Reservados todos los derechos."
+      },
+      {
+        "English": "Male", 
+        "Spanish": "Hombres"       
+      },
+      {
+        "English": "Female", 
+        "Spanish": "Mujeres" 
+      },
+      {
+        "English": "Urban", 
+        "Spanish": "Urbana"       
+      },
+      {
+        "English": "Rural", 
+        "Spanish": "Rural" 
+      },
+      {
         "English": "Department", 
         "Spanish": "Municipio"       
       },
@@ -18,16 +54,16 @@
         "Spanish": "Elementos de cara al público"
       },
       {
-        "English": "Demographic & Social", 
-        "Spanish": "Demográfico & Social"
+        "English": "Demographic and Social", 
+        "Spanish": "Demográfico y Social"
       },
       {
         "English": "Disability Status", 
         "Spanish": "Estado de Discapacidad"
       },
       {
-        "English": "Demography & Social Characteristics", 
-        "Spanish": "Demografía & Características Sociales"
+        "English": "Demography and Social Characteristics", 
+        "Spanish": "Demografía y Características Sociales"
       },
       {
         "English": "Controls", 
@@ -36,6 +72,10 @@
       {
         "English": "Select a location", 
         "Spanish": "Selecciona una ubicación"
+      },
+      {
+        "English": "Select a subtopic", 
+        "Spanish": "Selecciona una subtema"
       },
       {
         "English": "Explore each subtopic", 
@@ -195,7 +235,71 @@
       },
       {
         "English": "percent prevalence, people with at least some difficulty with communication", 
-        "Spanish": "porcentaje de prevalencia, personas con al menos alguna dificultad con la comunicaciónr"
+        "Spanish": "porcentaje de prevalencia, personas con al menos alguna dificultad con la comunicación"
+      },
+      {
+        "English": "0 to 4", 
+        "Spanish": "0 a 4"
+      },
+      {
+        "English": "5 to 9", 
+        "Spanish": "5 a 9"
+      },
+      {
+        "English": "10 to 14", 
+        "Spanish": "10 a 14"
+      },
+      {
+        "English": "15 to 19", 
+        "Spanish": "15 a 19"
+      },
+      {
+        "English": "20 to 24", 
+        "Spanish": "20 a 24"
+      },
+      {
+        "English": "25 to 29", 
+        "Spanish": "25 a 29"
+      },
+      {
+        "English": "30 to 34", 
+        "Spanish": "30 a 34"
+      },
+      {
+        "English": "35 to 39", 
+        "Spanish": "35 a 39"
+      },
+      {
+        "English": "40 to 44", 
+        "Spanish": "40 a 44"
+      },
+      {
+        "English": "45 to 49", 
+        "Spanish": "45 a 49"
+      },
+      {
+        "English": "50 to 54", 
+        "Spanish": "50 a 54"
+      },
+      {
+        "English": "55 to 59", 
+        "Spanish": "55 a 59"
+      },
+      {
+        "English": "60 to 64", 
+        "Spanish": "60 a 64"
+      },
+      {
+        "English": "65+", 
+        "Spanish": "65+"
+      },
+      {
+        "English": "With Disability", 
+        "Spanish": "Con Discapacidad"
+      },
+      {
+        "English": "DisabilityRate", 
+        "Spanish": "TasadeDiscapacida"
       }
     ]
 }

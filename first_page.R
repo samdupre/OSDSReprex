@@ -77,3 +77,16 @@ firstPage_second_stack_content <- function() {
              first_page_second_stack, size = 11)
   )}
 
+
+firstPage <- function(i18n) {
+  tagList(
+    shiny.i18n::usei18n(i18n),
+    makePage(
+      i18n$t('Demography and Social Characteristics'),
+      i18n$t("Explore each subtopic"),
+      div(
+        firstPage_first_stack_content(),
+        firstPage_second_stack_content()
+      )
+    ))
+}

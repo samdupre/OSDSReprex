@@ -97,3 +97,16 @@ secondPage_second_stack_content <- function() {
              second_page_second_stack,
              size = 11)
   )}
+
+secondPage <- function(i18n) {
+  tagList(
+    shiny.i18n::usei18n(i18n),
+    makePage(
+      i18n$t('Disability Status'),
+      i18n$t("Explore each subtopic"),
+      div(
+        secondPage_first_stack_content(),
+        secondPage_second_stack_content()
+      ))
+  )}
+

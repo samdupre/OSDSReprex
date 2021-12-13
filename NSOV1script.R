@@ -44,8 +44,8 @@ source("first_page.R")
 source("second_page.R")
 source("components.R")
 
-font_add_google(name = "Lato", family = "Lato", regular.wt = 400, bold.wt = 700)
-showtext_auto()
+# font_add_google(name = "Lato", family = "Lato", regular.wt = 400, bold.wt = 700)
+# showtext_auto()
 
 theme_plot <- function(...) {
   theme(
@@ -75,29 +75,23 @@ theme_plot <- function(...) {
 
 #LOAD THE DATA##################################################################################################################
 imported_data <- read_excel("data/GTMCenso_reprex.xlsx", sheet = "Population")
+
 imported_data_wide_all <- read_excel("data/GTMCenso_indicator_widgets_reprex.xlsx", sheet = "Population")
-# imported_data_for_join_0 <- imported_data_wide_all %>% filter(Level == "ADM0")
-# imported_data_for_join_1 <- imported_data_wide_all %>% filter(Level == "ADM1")
+imported_data <- imported_data %>%
+  dplyr::mutate(secondaryText = Type)
+
 imported_data_for_join_2 <- imported_data_wide_all %>% filter(Level == "ADM2")
 
-# sf_data_0 <- as(st_read("www/GTM_adm0.shp"), "Spatial")
-# sf_data_1 <- as(st_read("www/GTM_adm1.shp"), "Spatial")
 sf_data_2 <- as(st_read("www/GTM_adm2.shp"), "Spatial")
 
-# tempjoin0 <- sp::merge(sf_data_0, imported_data_for_join_0, by.x = "NAME_0", by.y = "ADM0")
-# tempjoin1 <- sp::merge(sf_data_1, imported_data_for_join_1, by.x = "ID_1", by.y = "AlphaJoinC")
 tempjoin2 <- sp::merge(sf_data_2, imported_data_for_join_2, by.x = "ID_2", by.y = "AlphaJoinC")
 
-# shapefile(tempjoin0, filename = "www/join_output_0.shp", overwrite = TRUE)
-# shapefile(tempjoin1, filename = "www/join_output_1.shp", overwrite = TRUE)
 shapefile(tempjoin2, filename = "www/join_output_2.shp", overwrite = TRUE)
 
-# sf0 <- as(st_read("www/join_output_0.shp"), "Spatial")
-# sf1 <- as(st_read("www/join_output_1.shp"), "Spatial")
 sf2 <- as(st_read("www/join_output_2.shp"), "Spatial")
 
 ADM1s <- list(
-  list(key = "All", text = i18n$t("All Areas")),
+  list(key = "All", text = "Total"),
   list(key = "Alta Verapaz", text = "Alta Verapaz"),
   list(key = "Baja Verapaz", text = "Baja Verapaz"),
   list(key = "Chimaltenango", text = "Chimaltenango"),
@@ -128,38 +122,40 @@ i18n <- Translator$new(translation_json_path='translations/translation.json')
 
 i18n$set_translation_language('English')
 
+lang_options <- list(
+  list(key = "English", text = "English"),
+  list(key = "Spanish", text = "Spanish")
+)
+
 #MAKE HEADER, FOOTER, AND SIDENAV##################################
 
 header <- tagList(
   div(
     tags$div(
-      selectInput(
-        inputId='selected_language',
-        label=i18n$t('Change language'),
-        choices = i18n$get_languages(),
-        selected = i18n$get_key_translation()
-      )
+      Dropdown.shinyInput("language", options = lang_options, value = "English")
     ))
 )
 
-footer <- Stack(
+footer <- function(i18n) {
+  Stack(
   horizontal = TRUE,
   horizontalAlign = 'space-between',
   tokens = list(childrenGap = 20),
-  Text(variant = "medium", "Powered by OSDS", block=TRUE),
-  Text(variant = "medium", nowrap = FALSE, "If you'd like to learn more, reach out to us at NSO@DOMAIN.GOV"),
-  Text(variant = "medium", nowrap = FALSE, "All rights reserved.")
-)
+  Text(variant = "medium", i18n$t("Created in OSDS"), block=TRUE),
+  Text(variant = "medium", nowrap = FALSE, i18n$t("If you'd like to learn more, reach out to us at NSO@DOMAIN.GOV")),
+  Text(variant = "medium", nowrap = FALSE, i18n$t("All rights reserved."))
+)}
 
-sidenav <- Nav(
+sidenav <- function(i18n) {
+  Nav(
   groups = list(
     list(links = list(
-      list(name = "Public-facing elements",
+      list(name = i18n$t("Public-facing elements"),
            expandAriaLabel = "Expand section",
            collapseAriaLabel = "Collapse section",
            links = list(
-             list(name = 'Demographic & Social', url = '#!/', key = 'sidebar_first', icon = 'Group'),
-             list(name = 'Disability Status', url = '#!/2', key = 'sidebar_second', icon = 'Glasses')
+             list(name = i18n$t('Demographic and Social'), url = '#!/', key = 'sidebar_first', icon = 'Group'),
+             list(name = i18n$t('Disability Status'), url = '#!/2', key = 'sidebar_second', icon = 'Glasses')
            )
       )))
   ),
@@ -172,11 +168,12 @@ sidenav <- Nav(
       overflowY = 'auto'
     )
   )
-)
+)}
 
 #SIDE DISPLAY########################################################
 
-sidedisplay <- Stack(
+sidedisplay <- function(i18n) {
+  Stack(
   tokens = list(childrenGap = 10),
   makeCard(i18n$t("Controls"),
            Stack(
@@ -191,35 +188,13 @@ sidedisplay <- Stack(
              )
            ),
            size = 11)
-)
-
-#USE MAKEPAGE() TO MAKE BODY PAGES##################################
-
-#FIRST
-firstPage <- makePage(
-  i18n$t('Demography & Social Characteristics'),
-  i18n$t("Explore each subtopic"),
-  div(
-    firstPage_first_stack_content(),
-    firstPage_second_stack_content()
-  )
-)
-
-#SECOND
-secondPage <- makePage(
-  i18n$t('Disability Status'),
-  i18n$t("Explore each subtopic"),
-  div(
-    secondPage_first_stack_content(),
-    secondPage_second_stack_content()
-  )
-)
+)}
 
 #SETUP THE ROUTER FUNCTIONALITY######################################
 
 router <- make_router(
-  route("/", firstPage),
-  route("2", secondPage)
+  route("/", firstPage(i18n)),
+  route("2", secondPage(i18n))
 )
 
 # Add shiny.router dependencies manually: they are not picked up because they're added in a non-standard way.
@@ -231,11 +206,23 @@ shiny_router_script_tag <- shiny::tags$script(type = "text/javascript", src = sh
 
 layout <- function(mainUI){
   div(class = "grid-container",
-      div(class = "header", header),
-      div(class = "sidenav", sidenav),
+      div(class = "header", 
+          tagList(
+            header
+            )),
+      div(class = "sidenav", 
+          tagList(
+            sidenav(i18n)
+            )),
       div(class = "main", mainUI),
-      div(class = "sidedisplay", sidedisplay),
-      div(class = "footer", footer)
+      div(class = "sidedisplay", 
+          tagList(
+            sidedisplay(i18n)
+            )),
+      div(class = "footer", 
+          tagList(
+            footer(i18n)
+            ))
   )
 }
 
@@ -258,9 +245,9 @@ ui <- fluentPage(
 
 server <- function(input, output, session) {
   
-  observeEvent(input$selected_language, { # translation, server side
-    update_lang(session, input$selected_language)
-  })
+  # observeEvent(input$language, { # translation, server side
+  #   update_lang(session, input$language)
+  # })
   
   router$server(input, output, session)
   
@@ -274,6 +261,8 @@ server <- function(input, output, session) {
     secondPage_focused_dataset = imported_data %>%
       filter(Type == "DisabilityRate" & Metric == "Walking" & Level == "ADM1")
   )  
+  
+  tr <- reactiveVal()
   
   #FILTER DATA TABLES#################################################  
   #Combine as many of these as possible
@@ -649,7 +638,7 @@ server <- function(input, output, session) {
       
       filter(Metric == "Population" & Type %in% c("Male", "Female")) %>%
       mutate(Sex = fct_relevel(Type, "Female", "Male")) %>%
-      ggplot(aes(x = Type, y = Value)) +
+      ggplot(aes(x = Type, y = Value, label = secondaryText)) +
       geom_bar(stat = "identity") +
       ggtitle(i18n$t("Population by Sex")) +
       ylab(i18n$t("People")) +
@@ -664,14 +653,14 @@ server <- function(input, output, session) {
     agePlot <- dropdownFilteredData() %>%
       filter(Metric == "Population" & Type %in% c("0 to 4", "5 to 9", "10 to 14", "15 to 19", "20 to 24", "25 to 29", "30 to 34", "35 to 39", "40 to 44", "45 to 49", "50 to 54", "55 to 59", "60 to 64", "65+")) %>%
       mutate(Type = fct_relevel(Type, "0 to 4", "5 to 9", "10 to 14", "15 to 19", "20 to 24", "25 to 29", "30 to 34", "35 to 39", "40 to 44", "45 to 49", "50 to 54", "55 to 59", "60 to 64", "65+")) %>%
-      ggplot(aes(x = Type, y = Value)) +
+      ggplot(aes(x = secondaryText, y = Value)) +
       geom_bar(stat = "identity") +
       ggtitle(i18n$t("Population by Age")) +
       ylab(i18n$t("People")) +
       xlab(i18n$t("Age")) +
       theme_plot() +
       coord_flip()
-    
+
     agePlot
   })
   
@@ -679,7 +668,7 @@ server <- function(input, output, session) {
     urbanRuralPlot <- dropdownFilteredData() %>%
       filter(Metric == "Population" & Type %in% c("Urban", "Rural")) %>%
       mutate(UrbanRural = fct_relevel(UrbanRural, "Urban", "Rural")) %>%
-      ggplot(aes(x = Type, y = Value)) +
+      ggplot(aes(x = Type, y = Value, label = secondaryText)) +
       geom_bar(stat = "identity") +
       ggtitle(i18n$t("Population by Urban / Rural Residence")) +
       ylab(i18n$t("People")) +
@@ -736,9 +725,21 @@ server <- function(input, output, session) {
   
   #TRANSLATION########################################################
   
-  observeEvent(input$selected_language, {
-    update_lang(session, input$selected_language)
+  observeEvent(input$language, {
+    lang <- input$language
+    update_lang(session, lang)
+    i18n$set_translation_language(lang)
+    tr(i18n)
   })
+  
+  observe({
+    req(tr())
+    newOptions <- purrr::map(lang_options, ~ list(key = .x$key, text = tr()$t(.x$text)))
+    updateDropdown.shinyInput(session = session, inputId = "language", options = newOptions)
+    imported_data <- imported_data %>%
+      dplyr::mutate(secondaryText = tr()$t(secondaryText))
+  })
+  
 
 }
 
