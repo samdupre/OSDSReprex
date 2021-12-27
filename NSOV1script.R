@@ -278,8 +278,10 @@ server <- function(input, output, session) {
   dropdownFilteredData <- reactive({
     req(input$dropdown)
     if (input$dropdown == "All") filtered_data <- imported_data %>%
+        dplyr::mutate(secondaryText = tr()$t(secondaryText)) %>%
         dplyr::filter(Level == "ADM0")
     else filtered_data <- imported_data %>%
+        dplyr::mutate(secondaryText = tr()$t(secondaryText)) %>%
         dplyr::filter(ADM1 == input$dropdown)
   })
   
@@ -635,10 +637,9 @@ server <- function(input, output, session) {
   
   output$firstPage_Sex <- renderPlot({
     sexPlot <- dropdownFilteredData() %>%
-      
       filter(Metric == "Population" & Type %in% c("Male", "Female")) %>%
       mutate(Sex = fct_relevel(Type, "Female", "Male")) %>%
-      ggplot(aes(x = Type, y = Value, label = secondaryText)) +
+      ggplot(aes(x = secondaryText, y = Value)) +
       geom_bar(stat = "identity") +
       ggtitle(i18n$t("Population by Sex")) +
       ylab(i18n$t("People")) +
@@ -668,7 +669,7 @@ server <- function(input, output, session) {
     urbanRuralPlot <- dropdownFilteredData() %>%
       filter(Metric == "Population" & Type %in% c("Urban", "Rural")) %>%
       mutate(UrbanRural = fct_relevel(UrbanRural, "Urban", "Rural")) %>%
-      ggplot(aes(x = Type, y = Value, label = secondaryText)) +
+      ggplot(aes(x = secondaryText, y = Value)) +
       geom_bar(stat = "identity") +
       ggtitle(i18n$t("Population by Urban / Rural Residence")) +
       ylab(i18n$t("People")) +
@@ -736,8 +737,6 @@ server <- function(input, output, session) {
     req(tr())
     newOptions <- purrr::map(lang_options, ~ list(key = .x$key, text = tr()$t(.x$text)))
     updateDropdown.shinyInput(session = session, inputId = "language", options = newOptions)
-    imported_data <- imported_data %>%
-      dplyr::mutate(secondaryText = tr()$t(secondaryText))
   })
   
 
