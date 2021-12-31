@@ -1,0 +1,11 @@
+name: osdsreprex
+title:
+username:
+account: sdupretesting
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5326018
+bundleId: 5373923
+url: https://sdupretesting.shinyapps.io/osdsreprex/
+when: 1639538264.94236
+lastSyncTime: 1639538264.94236
