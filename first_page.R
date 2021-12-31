@@ -6,20 +6,14 @@ first_page_overview_stack <- Stack(
     tokens = list(childrenGap = 10), horizontal = TRUE,
     makeCard(" ",
              div(
+               strong(i18n$t("Population by Municipality, Guatemala 2018")),
+               br(),
                leafletOutput("first_page_map")
              ),
-             size = 6
+             size = 9
     ),
     makeCard(" ",
              div(
-               plotOutput("firstPage_Pop_ADM1Plot")),
-             size = 3
-    ),
-    makeCard(" ",
-             div(
-               strong(i18n$t("Viewing:")),
-               textOutput("firstPage_statistics_text0"),
-               br(),
                strong(i18n$t("Total Population")),
                textOutput("firstPage_statistics_text1"),
                strong(i18n$t("Population Density")),
@@ -44,14 +38,13 @@ first_page_second_stack <- Stack(
       tokens = list(childrenGap = 10), horizontal = TRUE,
       makeCard(" ",
                div(
-                 plotOutput("firstPage_Sex")),
+                 plotOutput("firstPage_Pop_ADM1Plot")),
                size = 6
       ),
-      
       makeCard(" ",
                div(
-                 plotOutput("firstPage_Age")),
-               size = 5
+                 plotOutput("firstPage_Sex")),
+               size = 6
       )
     ),
     Stack(
@@ -62,9 +55,9 @@ first_page_second_stack <- Stack(
                size = 6
       ),
       makeCard(" ",
-               Stack(
-                 p(i18n$t("NOTE [Definition of dependency ratio, total]"))),
-               size = 5
+               div(
+                 plotOutput("firstPage_Age")),
+               size = 6
       )
     )
   )
@@ -77,6 +70,30 @@ firstPage_second_stack_content <- function() {
              first_page_second_stack, size = 11)
   )}
 
+first_page_third_stack <- Stack(
+  tokens = list(childrenGap = 10),
+  Stack(
+    tokens = list(childrenGap = 10), horizontal = FALSE,
+    makeCard(" ",
+             div(
+               Text(i18n$t("Export demographic and social data (in .csv format)")),
+               useShinyjs(),
+               Stack(tokens = list(childrenGap = 10), horizontal = TRUE,
+                     DefaultButton.shinyInput("page1_dd", text = i18n$t("Download Demographic and Social Data"), iconProps = list(iconName = "Download Demographic & Social Data")),
+                     div(style = "visibility: hidden;", downloadButton("page1_ddb", label = ""))),
+               ),
+             size = 11
+    )
+  )
+)
+
+firstPage_third_stack_content <- function() {
+  Stack(
+    tokens = list(childrenGap = 10),
+    makeCard("",
+             first_page_third_stack,
+             size = 11)
+  )}
 
 firstPage <- function(i18n) {
   tagList(
@@ -86,7 +103,8 @@ firstPage <- function(i18n) {
       i18n$t("Explore each subtopic"),
       div(
         firstPage_first_stack_content(),
-        firstPage_second_stack_content()
+        firstPage_second_stack_content(),
+        firstPage_third_stack_content()
       )
     ))
 }

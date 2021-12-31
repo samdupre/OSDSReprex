@@ -41,21 +41,15 @@ second_page_first_stack <- Stack(
       tokens = list(childrenGap = 10), horizontal = TRUE,
       makeCard(" ",
                div(
+                 strong(i18n$t("Prevalence Rate of Population with at Least Some Difficulty by Municipality, Guatemala 2018")),
+                 textOutput("secondPage_map_subtitle"),
+                 br(),
                  leafletOutput("second_page_map")
                ),
-               size = 6
+               size = 9
       ),
       makeCard(" ",
                div(
-                 plotOutput("secondPage_Dis_ADM1Plot")
-               ),
-               size = 3
-      ),
-      makeCard(" ",
-               div(
-                 strong(i18n$t("Viewing:")),
-                 textOutput("secondPage_statistics_text0"),
-                 br(),
                  strong(i18n$t("At least some difficulty in any domain*:")),
                  textOutput("secondPage_statistics_text1"),
                  br(),
@@ -80,12 +74,25 @@ secondPage_first_stack_content <- function() {
 second_page_second_stack <- Stack(
   tokens = list(childrenGap = 10),
   Stack(
-    tokens = list(childrenGap = 10), horizontal = FALSE,
+    tokens = list(childrenGap = 10), 
+    #horizontal = TRUE,
     makeCard(" ",
              div(
-               p(i18n$t("These figures and calculations include only individuals aged 5 years and older"))
+               plotOutput("secondPage_Dis_ADM1Plot")
              ),
              size = 11
+    ),
+    makeCard(" ",
+             div(
+               Text(i18n$t("Export disability status data (in .csv format)")),
+               useShinyjs(),
+               Stack(tokens = list(childrenGap = 10), horizontal = TRUE,
+                     DefaultButton.shinyInput("page3_dd", text = i18n$t("Download Disability Status Data"), iconProps = list(iconName = "Download Disability Status Data")),
+                     div(style = "visibility: hidden;", downloadButton("page3_ddb", label = "")))
+               #,
+               #p(i18n$t("NOTE: These figures and calculations include only individuals aged 5 years and older"))
+             ),
+             size = 5
     )
   )
 )
@@ -93,10 +100,36 @@ second_page_second_stack <- Stack(
 secondPage_second_stack_content <- function() {
   Stack(
     tokens = list(childrenGap = 10),
-    makeCard(i18n$t("Notes"),
+    makeCard(i18n$t(""),
              second_page_second_stack,
              size = 11)
   )}
+
+# third_page_third_stack <- Stack(
+#   tokens = list(childrenGap = 10),
+#   Stack(
+#     tokens = list(childrenGap = 10), horizontal = FALSE,
+#     makeCard(" ",
+#              div(
+#                Text(i18n$t("Export disability status data (in .csv format)")),
+#                useShinyjs(),
+#                Stack(tokens = list(childrenGap = 10), horizontal = TRUE,
+#                      DefaultButton.shinyInput("page3_dd", text = i18n$t("Download Disability Status Data"), iconProps = list(iconName = "Download Disability Status Data")),
+#                      div(style = "visibility: hidden;", downloadButton("page3_ddb", label = ""))),
+#                p(i18n$t("NOTE: These figures and calculations include only individuals aged 5 years and older"))
+#              ),
+#              size = 11
+#     )
+#   )
+# )
+
+# thirdPage_third_stack_content <- function() {
+#   Stack(
+#     tokens = list(childrenGap = 10),
+#     makeCard("",
+#              third_page_third_stack,
+#              size = 11)
+#   )}
 
 secondPage <- function(i18n) {
   tagList(

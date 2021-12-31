@@ -82,18 +82,6 @@
         "Spanish": "Explore cada subtema"
       },
       {
-        "English": "Sex", 
-        "Spanish": "Sexo"
-      },
-      {
-        "English": "Age", 
-        "Spanish": "Edad"
-      },
-      {
-        "English": "Urban / Rural Status", 
-        "Spanish": "Situación Urbana / Rural"
-      },
-      {
         "English": "Population by Sex", 
         "Spanish": "Población por Sexo"
       },
@@ -108,6 +96,10 @@
       {
         "English": "Population by Department", 
         "Spanish": "Población por Departamento"
+      },
+      {
+        "English": "Population by Department, Guatemala 2018", 
+        "Spanish": "Población por Departamento, Guatemala 2018"
       },
       {
         "English": "NOTE [Definition of dependency ratio, total]", 
@@ -190,52 +182,32 @@
         "Spanish": "Tasa de Prevalencia (Porcentaje)"
       },
       {
-        "English": "Prevalence Rate of Population with at Least Some \nDifficulty in Walking by Department", 
-        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna \nDificultad para Caminar por Departamento"
+        "English": "Prevalence Rate of Population with at Least Some Difficulty in Walking by Department, Guatemala 2018", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna Dificultad para Caminar por Departamento, Guatemala 2018"
       },
       {
-        "English": "Prevalence Rate of Population with at Least Some \nDifficulty in Seeing by Department", 
-        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna \nDificultad para Ver por Departamento"
+        "English": "Prevalence Rate of Population with at Least Some Difficulty in Seeing by Department, Guatemala 2018", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna Dificultad para Ver por Departamento, Guatemala 2018"
       },
       {
-        "English": "Prevalence Rate of Population with at Least Some \nDifficulty in Hearing by Department", 
-        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna \nDificultad para Oir por Departamento"
+        "English": "Prevalence Rate of Population with at Least Some Difficulty in Hearing by Department, Guatemala 2018", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna Dificultad para Oir por Departamento, Guatemala 2018"
       },
       {
-        "English": "Prevalence Rate of Population with at Least Some \nCognition Difficulty by Department", 
-        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna Dificultad para \nCognición por Departamento"
+        "English": "Prevalence Rate of Population with at Least Some Cognition Difficulty by Department, Guatemala 2018", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna Dificultad para Cognición por Departamento, Guatemala 2018"
       },
       {
-        "English": "Prevalence Rate of Population with at Least Some \nDifficulty With Selfcare by Department", 
-        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna \nDificultad para Autocuidado por Departamento"
+        "English": "Prevalence Rate of Population with at Least Some Difficulty With Selfcare by Department, Guatemala 2018", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna Dificultad para Autocuidado por Departamento, Guatemala 2018"
       },
       {
-        "English": "Prevalence Rate of Population with at Least Some \nDifficulty With Communication by Department", 
-        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna \nDificultad para Comunicación por Departamento"
+        "English": "Prevalence Rate of Population with at Least Some Difficulty With Communication by Department, Guatemala 2018", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna Dificultad para Comunicación por Departamento, Guatemala 2018"
       },
       {
-        "English": "percent prevalence, people with at least some difficulty walking", 
-        "Spanish": "porcentaje de prevalencia, personas con al menos alguna dificultad para caminar"
-      },
-      {
-        "English": "percent prevalence, people with at least some difficulty seeing", 
-        "Spanish": "porcentaje de prevalencia, personas con al menos alguna dificultad para viendo"
-      },
-      {
-        "English": "percent prevalence, people with at least some difficulty hearing", 
-        "Spanish": "porcentaje de prevalencia, personas con al menos alguna dificultad para oyendo"
-      },
-      {
-        "English": "percent prevalence, people with at least some cognition difficulty", 
-        "Spanish": "porcentaje de prevalencia, personas con al menos alguna dificultad cognitiva"
-      },
-      {
-        "English": "percent prevalence, people with at least some difficulty with selfcare", 
-        "Spanish": "porcentaje de prevalencia, personas con al menos alguna dificultad con el autocuidado"
-      },
-      {
-        "English": "percent prevalence, people with at least some difficulty with communication", 
-        "Spanish": "porcentaje de prevalencia, personas con al menos alguna dificultad con la comunicación"
+        "English": "percent prevalence, people with at least some difficulty", 
+        "Spanish": "porcentaje de prevalencia, personas con al menos alguna dificultad"
       },
       {
         "English": "0 to 4", 
@@ -300,6 +272,58 @@
       {
         "English": "DisabilityRate", 
         "Spanish": "TasadeDiscapacida"
+      },
+      {
+        "English": "Download Demographic and Social Data",
+        "Spanish": "Descargar datos demográficos y sociales "
+      },
+      {
+        "English": "Export demographic and social data (in .csv format)",
+        "Spanish": "Exportar datos demográficos y sociales (en formato .csv)"
+      },
+      {
+        "English": "Download Disability Status Data",
+        "Spanish": "Descargar datos de estado de discapacidad"
+      },
+      {
+        "English": "Export disability status data (in .csv format)",
+        "Spanish": "Exportar datos de estado de discapacidad (en formato .csv)"
+      },
+      {
+        "English": "Population by Municipality, Guatemala 2018",
+        "Spanish": "Población por Municipio, Guatemala 2018"
+      },
+      {
+        "English": "Prevalence Rate of Population with at Least Some \nDifficulty in Walking by Municipality", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna \nDificultad para Caminar por Municipio"
+      },
+      {
+        "English": "Prevalence Rate of Population with at Least Some \nDifficulty in Seeing by Municipality", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna \nDificultad para Ver por Municipio"
+      },
+      {
+        "English": "Prevalence Rate of Population with at Least Some \nDifficulty in Hearing by Municipality", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna \nDificultad para Oir por Municipio"
+      },
+      {
+        "English": "Prevalence Rate of Population with at Least Some \nCognition Difficulty by Municipality", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna Dificultad para \nCognición por Municipio"
+      },
+      {
+        "English": "Prevalence Rate of Population with at Least Some \nDifficulty With Selfcare by Municipality", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna \nDificultad para Autocuidado por Municipio"
+      },
+      {
+        "English": "Prevalence Rate of Population with at Least Some \nDifficulty With Communication by Municipality", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna \nDificultad para Comunicación por Municipio"
+      },
+      {
+        "English": "Prevalence Rate of Population with at Least Some Difficulty by Municipality, Guatemala 2018", 
+        "Spanish": "Tasa de Prevalencia de la Población con al Menos Alguna Dificultad por Municipio, Guatemala 2018"
+      },
+      {
+        "English": "Subtopic:", 
+        "Spanish": "Subtema: "
       }
-    ]
+      ]
 }
